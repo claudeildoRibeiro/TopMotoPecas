@@ -9,6 +9,6 @@ class HomeController extends Controller
     // returns the home view
     public function index()
     {
-        return view('home');
+        return view('partials.home_section');
     }
 }
