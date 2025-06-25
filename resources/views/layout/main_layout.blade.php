@@ -11,8 +11,11 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
-    @vite('resources/css/app.css')
-    <!-- Styles -->
+    <!-- Styles Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- favicon --}}
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
 
 </head>
 
@@ -23,7 +26,7 @@
    @yield('content')
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6 mt-10 fixed bottom-0 w-full">
+    <footer class="bg-zinc-900 opacity-60 text-white py-6 mt-10 fixed bottom-0 w-full">
         <div class="max-w-6xl mx-auto text-center">
             <p class="text-sm">© {{ date('Y') }} Top Moto Peças. Todos os direitos reservados.</p>
         </div>
