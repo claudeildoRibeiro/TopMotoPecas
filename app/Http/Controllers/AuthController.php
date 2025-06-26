@@ -55,27 +55,15 @@ class AuthController extends Controller
             ]);
         }
 
-        // check if user is admin
-        if ($user->is_admin) {
-            // If the user is an admin, store the user in session
-            $request->session()->put('user_admin', $user);
-            return redirect()->route('home');
-        } else {
-            // If the user is not an admin, store the user in session
-            $request->session()->put('user', $user);
-            return redirect()->route('home');
-        }
-
-        // If login fails, redirect back with an error message
-        return back()->withErrors([
-            'email' => 'As credenciais fornecidas não correspondem aos nossos registros.',
-        ]);
+        // If the user is not an admin, store the user in session
+        $request->session()->put('user', $user);
+        return redirect()->route('home');
     }
 
     // Handles user logout
     public function logout()
     {
-        session()->forget(['user', 'user_admin']);
+        session()->forget(['user']);
         return redirect()->route('home');
     }
 

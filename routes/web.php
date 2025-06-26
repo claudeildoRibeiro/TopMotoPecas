@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceOrderController;
+use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\UserIsAdmin;
 use App\Http\Middleware\UserIsLogged;
@@ -59,13 +60,14 @@ Route::delete('service-order/{id}', [ServiceOrderController::class, 'destroy'])-
 |
 */
 Route::middleware([UserIsAdmin::class])->group(function () {
-Route::get('admin/dashboard', [UserController::class, 'index'])->name('admin.dashboard');
-Route::get('users/create', [UserController::class, 'create'])->name('users.create');
-Route::post('users/store', [UserController::class, 'store'])->name('users.store');
-Route::get('users/{id}', [UserController::class, 'show'])->name('users.show');
-Route::get('users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
-Route::put('users/{id}', [UserController::class, 'update'])->name('users.update');
-Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+Route::get('admin/dashboard', [UserAdminController::class, 'index'])->name('admin.dashboard');
+Route::get('showUsers', [UserAdminController::class, 'showUsers'])->name('showUsers');
+Route::get('users/create', [UserAdminController::class, 'create'])->name('users.create');
+Route::post('users/store', [UserAdminController::class, 'store'])->name('users.store');
+Route::get('users/{id}', [UserAdminController::class, 'show'])->name('users.show');
+Route::get('users/{id}/edit', [UserAdminController::class, 'edit'])->name('users.edit');
+Route::put('users/{id}', [UserAdminController::class, 'update'])->name('users.update');
+Route::delete('users/{id}', [UserAdminController::class, 'destroy'])->name('users.destroy');
 });
 
 // Route for User Authentication

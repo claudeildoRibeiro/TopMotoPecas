@@ -7,10 +7,10 @@
                 <span class="tracking-tight">TM</span>
             </div>
             {{-- check if exists session --}}
-            @if (session('user_admin'))
+            @if (session('user')->is_admin ?? false)
                 <div class="relative group">
                     <button class="flex items-center text-white font-semibold focus:outline-none">
-                        Olá, {{ session('user_admin')->name }}!
+                        Olá, {{ session('user')->name }}!
                         <svg class="ml-1 h-4 w-4 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -37,11 +37,12 @@
                         </form>
                     </div>
                 </div>
-            @endif
-            @if (session('user'))
+            @elseif (session('user') )
                 <div class="text-white ">
                     Olá, {{ session('user')->name }}!
                 </div>
+            @else
+
             @endif
 
         </div>

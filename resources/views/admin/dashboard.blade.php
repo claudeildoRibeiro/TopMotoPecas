@@ -7,13 +7,13 @@
         <h1 class="text-3xl font-bold text-red-800 mb-8 text-center uppercase">Painel do Administrador</h1>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Registrar novo usuário -->
-            <a href="{{ route('users.create') }}" class="group block bg-red-100 hover:bg-red-200 border border-red-300 rounded-lg p-6 text-center shadow transition">
+            <a href="{{ route('showUsers') }}" class="group block bg-red-100 hover:bg-red-200 border border-red-300 rounded-lg p-6 text-center shadow transition">
                 <div class="flex justify-center mb-4">
                     <svg class="h-10 w-10 text-red-700 group-hover:text-red-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
                     </svg>
                 </div>
-                <span class="text-lg font-semibold text-red-800">Registrar Novo Usuário</span>
+                <span class="text-lg font-semibold text-red-800">Lista de Usuários</span>
                 <p class="text-gray-600 text-sm mt-2">Adicione novos administradores ou funcionários ao sistema.</p>
             </a>
             <!-- Cadastrar nova peça -->

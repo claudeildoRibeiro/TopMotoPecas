@@ -16,7 +16,7 @@ class UserIsAdmin
     public function handle(Request $request, Closure $next): Response
     {
         // check if existing user admin in session
-        if (!$request->session()->has('user_admin')) {
+        if (!$request->session()->get('user')->is_admin) {
             // if not, redirect to home page
             return redirect()->route('login');
         }
